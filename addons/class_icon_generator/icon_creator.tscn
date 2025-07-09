@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlaaltjk2fd40"]
+
+[ext_resource type="Script" uid="uid://bs8276ru4riu8" path="res://addons/class_icon_generator/create_svg_file.gd" id="1_avq0l"]
+
+[node name="IconCreator" type="Node"]
+script = ExtResource("1_avq0l")
