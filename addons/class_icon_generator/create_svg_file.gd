@@ -4,7 +4,8 @@ extends Node
 enum ColorOptions {
 	NODE2D,
 	NODE3D,
-	CONTROL
+	CONTROL,
+	RESOURCE
 }
 @export var with_color:ColorOptions = ColorOptions.NODE2D
 @export var icon_name:String = "Hello World!"
@@ -22,11 +23,14 @@ func _process(delta: float) -> void:
 					new_color = "#8da5f3"
 				ColorOptions.NODE3D:
 					new_color = "#fc7f7f"
-				_:
+				ColorOptions.RESOURCE:
 					new_color = "#ffffff"
+				_:
+					new_color = "#000000"
 			create_svg_file(icon_name, new_color)
 
 			create = false
+
 
 func create_svg_file(key: String, color: String) -> void:
 	seed(hash(key))
