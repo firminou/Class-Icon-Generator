@@ -9,7 +9,7 @@ enum ColorOptions {
 }
 @export var with_color:ColorOptions = ColorOptions.NODE2D
 @export var icon_name:String = "Hello World!"
-@export var size:int = 5
+@export_range(3, 10) var size:int = 5
 @export var create:bool = false
 
 func _process(delta: float) -> void:
@@ -31,15 +31,14 @@ func _process(delta: float) -> void:
 
 			create = false
 
-
 func create_svg_file(key: String, color: String) -> void:
 	seed(hash(key))
 
 	var pixel_map: Dictionary[Vector2, bool]
 
 	# Creates to hold HALF the icon, the rest will be mirrored
-	for x:int in range(0, ceilf(size / 2) ):
-		for y:int in range(0, size - 1):
+	for x:int in range(0, ceilf((size+1) / 2) ):
+		for y:int in range(0, size):
 			pixel_map[Vector2(x,y)] = randi_range(0, 1) == 1
 
 	# Create the base of the svg file
